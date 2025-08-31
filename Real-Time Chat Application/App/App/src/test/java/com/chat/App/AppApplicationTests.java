@@ -1,10 +1,10 @@
-package com.bhaskar.GoogleGitLogin;
+package com.chat.App;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GoogleGitLoginApplicationTests {
+class AppApplicationTests {
 
 	@Test
 	void contextLoads() {

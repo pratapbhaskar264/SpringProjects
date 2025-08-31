@@ -1,13 +1,13 @@
-package com.bhaskar.GoogleGitLogin;
+package com.chat.App;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GoogleGitLoginApplication {
+public class AppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GoogleGitLoginApplication.class, args);
+		SpringApplication.run(AppApplication.class, args);
 	}
 
 }
