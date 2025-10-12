@@ -9,6 +9,6 @@ public class Test {
     @GetMapping("/home")
     public String greet() {
 //        System.out.println("good Evening bhaskar");
-        return "good evening shreyash";
+        return "good evening ";
     }
 }
