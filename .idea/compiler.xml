@@ -29,11 +29,15 @@
         <module name="Blogging-App" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CLIbased-TaskTracker" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="App" options="-parameters" />
       <module name="Blogging-App" options="-parameters" />
+      <module name="CLIbased-TaskTracker" options="-parameters" />
       <module name="GoogleGitLogin" options="-parameters" />
       <module name="LibraryManagement" options="-parameters" />
     </option>
