@@ -28,6 +28,15 @@
         </processorPath>
         <module name="Blogging-App" />
       </profile>
+      <profile name="Annotation profile for Hospital-Management" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
+        <module name="Hospital-Management" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CLIbased-TaskTracker" target="17" />
@@ -39,6 +48,7 @@
       <module name="Blogging-App" options="-parameters" />
       <module name="CLIbased-TaskTracker" options="-parameters" />
       <module name="GoogleGitLogin" options="-parameters" />
+      <module name="Hospital-Management" options="-parameters" />
       <module name="LibraryManagement" options="-parameters" />
     </option>
   </component>
