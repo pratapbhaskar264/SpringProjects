@@ -1,6 +1,6 @@
 package com.bhaskar.Hospital_Management.controllers;
 
-import com.bhaskar.Hospital_Management.models.Patient;
+import com.bhaskar.Hospital_Management.models.Doctor;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.PatchExchange;
@@ -9,26 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/patients")
-public class Patientcontrollers {
+@RequestMapping("/api/v1/appointments")
+public class Appointmentcontrollers {
 
 
 
     @GetMapping
-    public List<Patient> getAllPatients(){
+    public List<Doctor> getAllPatients(){
         return new ArrayList<>();
     }
 
     @PostMapping
-    public Patient createPatient(@RequestBody Patient patient) {
-        System.out.println("woohhho...mreejBngya");
-        return new Patient();
+    public Doctor createPatient(@RequestBody Doctor doctor) {
+        System.out.println("woohhho...doctorBngya");
+        return new Doctor();
     }
 
     @GetMapping("/{id}")
-    public Patient getPatientById(@PathVariable Long id ){
+    public Doctor getPatientById(@PathVariable Long id ){
         System.out.println("leli id");
-        return new Patient();
+        return new Doctor();
     }
 
     @GetMapping("/{id}")
@@ -37,7 +37,7 @@ public class Patientcontrollers {
     }
 
     @PutMapping
-    public void updatePatient(@RequestBody Patient patient  ) {
+    public void updatePatient(@RequestBody Doctor doctor ) {
 
     }
 }
