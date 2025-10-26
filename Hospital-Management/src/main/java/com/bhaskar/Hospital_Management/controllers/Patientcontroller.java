@@ -39,6 +39,6 @@ public class Patientcontroller {
 
     @PutMapping
     public void updatePatient(@RequestBody Patient patient  ) {
-
+          patientService.updatePatient(patient);
     }
 }

@@ -37,5 +37,9 @@ public class PateintService {
     }
 
     public void deletePateintById(Long id) {
+        
+    }
+
+    public void updatePatient(Patient patient) {
     }
 }
