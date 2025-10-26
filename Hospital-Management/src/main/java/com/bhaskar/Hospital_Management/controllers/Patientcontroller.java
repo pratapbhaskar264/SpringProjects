@@ -1,16 +1,14 @@
 package com.bhaskar.Hospital_Management.controllers;
 
 import com.bhaskar.Hospital_Management.models.Patient;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.PatchExchange;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/patients")
-public class Patientcontrollers {
+public class Patientcontroller {
 
 
 
@@ -31,7 +29,7 @@ public class Patientcontrollers {
         return new Patient();
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
     public void deletePatientById(@PathVariable Long id ){
         System.out.println("mrgyi id");
     }
