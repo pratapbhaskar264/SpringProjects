@@ -1,7 +1,7 @@
 package com.bhaskar.Hospital_Management.controllers;
 
 import com.bhaskar.Hospital_Management.models.Patient;
-import com.bhaskar.Hospital_Management.service.PateintService;
+import com.bhaskar.Hospital_Management.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class Patientcontroller {
 
  @Autowired
- private PateintService patientService;
+ private PatientService patientService;
 
     @GetMapping
     public List<Patient> getAllPatients(){
@@ -23,7 +23,7 @@ public class Patientcontroller {
 
     @PostMapping
     public Patient createPatient(@RequestBody Patient patient) {
-        return  patientService.createPateint(patient) ;
+        return  patientService.createPatient(patient) ;
     }
 
     @GetMapping("/{id}")
@@ -34,7 +34,7 @@ public class Patientcontroller {
 
     @DeleteMapping("/{id}")
     public void deletePatientById(@PathVariable Long id ){
-            patientService.deletePateintById(id);
+            patientService.deletePatientById(id);
     }
 
     @PutMapping

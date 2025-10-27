@@ -1,39 +1,41 @@
 package com.bhaskar.Hospital_Management.controllers;
 
 import com.bhaskar.Hospital_Management.models.Bill;
+import com.bhaskar.Hospital_Management.service.BillService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/bills")
 public class BillController {
 
+    @Autowired
+    private BillService billService;
+
     @GetMapping
     public List<Bill> getAllBills() {
-        return new ArrayList<>();
+        return billService.getAllBills();
     }
 
     @PostMapping
     public Bill createBill(@RequestBody Bill bill) {
-        System.out.println("Bill generated successfully!");
-        return new Bill();
+        return billService.createBill(bill);
     }
 
     @GetMapping("/{id}")
     public Bill getBillById(@PathVariable Long id) {
-        System.out.println("Fetched bill with id: " + id);
-        return new Bill();
+        return billService.getBillById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteBillById(@PathVariable Long id) {
-        System.out.println("Deleted bill with id: " + id);
+        billService.deleteBillById(id);
     }
 
     @PutMapping
     public void updateBill(@RequestBody Bill bill) {
-        System.out.println("Bill updated successfully!");
+        billService.updateBill(bill);
     }
 }
