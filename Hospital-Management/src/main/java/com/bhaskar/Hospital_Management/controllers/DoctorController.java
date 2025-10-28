@@ -34,8 +34,8 @@ public class DoctorController {
         doctorService.deleteDoctorById(id);
     }
 
-    @PutMapping
-    public void updateDoctor(@RequestBody Doctor doctor) {
-        doctorService.updateDoctor(doctor);
+    @PutMapping("/{id}")
+    public void updateDoctor(@RequestBody Doctor doctor , @PathVariable Long id) {
+        doctorService.updateDoctor(doctor ,id);
     }
 }
