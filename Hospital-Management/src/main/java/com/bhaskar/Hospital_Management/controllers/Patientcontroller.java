@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/patients")
@@ -27,7 +28,7 @@ public class Patientcontroller {
     }
 
     @GetMapping("/{id}")
-    public Patient getPatientById(@PathVariable Long id ){
+    public Optional<Patient> getPatientById(@PathVariable Long id ){
 
         return patientService.getPatientById(id);
     }
