@@ -54,10 +54,20 @@ public class PatientService {
         }
     }
 
-    public void updatePatient(Patient patient) {
+    public void updatePatient(Long id,Patient patient) {
         try {
             System.out.println("SERVICE - updatePatient");
-            // update logic
+            Optional<Patient> temp = patientRepository.findById(id);
+            if(temp.isPresent()){
+                Patient p = temp.get();
+                p.setName(patient.getName());
+                p.setAge(patient.getAge());
+                p.setGender(patient.getGender());
+                patientRepository.save(p);
+            }
+            else{
+                logger.error("Patient with id : {} not found",id);
+            }
 
         } catch (Exception e) {
             logger.error("An error occurred while updating patient: {}", patient, e);
