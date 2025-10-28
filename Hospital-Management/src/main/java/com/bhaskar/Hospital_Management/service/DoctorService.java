@@ -1,6 +1,8 @@
 package com.bhaskar.Hospital_Management.service;
 
 import com.bhaskar.Hospital_Management.models.Doctor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,54 +11,51 @@ import java.util.List;
 @Service
 public class DoctorService {
 
+    private static final Logger logger = LoggerFactory.getLogger(DoctorService.class);
+
     public List<Doctor> getAllDoctors() {
         try {
-            System.out.println("SERVICE - getAllDoctors");
+            logger.info("SERVICE - getAllDoctors");
             return new ArrayList<>();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in getAllDoctors");
+            logger.error("An error occurred while fetching all doctors", e);
             return new ArrayList<>();
         }
     }
 
     public Doctor getDoctorById(Long id) {
         try {
-            System.out.println("SERVICE - getDoctorById: " + id);
+            logger.info("SERVICE - getDoctorById: {}", id);
             return new Doctor();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in getDoctorById");
+            logger.error("An error occurred while fetching doctor with ID: {}", id, e);
             return new Doctor();
         }
     }
 
     public Doctor createDoctor(Doctor doctor) {
         try {
-            System.out.println("SERVICE - createDoctor");
+            logger.info("SERVICE - createDoctor");
             return new Doctor();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in createDoctor");
+            logger.error("An error occurred while creating a doctor: {}", doctor, e);
             return new Doctor();
         }
     }
 
     public void deleteDoctorById(Long id) {
         try {
-            System.out.println("SERVICE - deleteDoctorById: " + id);
+            logger.info("SERVICE - deleteDoctorById: {}", id);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in deleteDoctorById");
+            logger.error("An error occurred while deleting doctor with ID: {}", id, e);
         }
     }
 
     public void updateDoctor(Doctor doctor) {
         try {
-            System.out.println("SERVICE - updateDoctor");
+            logger.info("SERVICE - updateDoctor");
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in updateDoctor");
+            logger.error("An error occurred while updating doctor: {}", doctor, e);
         }
     }
 }

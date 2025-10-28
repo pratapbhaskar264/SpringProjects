@@ -1,6 +1,8 @@
 package com.bhaskar.Hospital_Management.service;
 
 import com.bhaskar.Hospital_Management.models.Bill;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,54 +11,51 @@ import java.util.List;
 @Service
 public class BillService {
 
+    private static final Logger logger = LoggerFactory.getLogger(BillService.class);
+
     public List<Bill> getAllBills() {
         try {
-            System.out.println("SERVICE - getAllBills");
+            logger.info("SERVICE - getAllBills");
             return new ArrayList<>();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in getAllBills");
+            logger.error("An error occurred while fetching all bills", e);
             return new ArrayList<>();
         }
     }
 
     public Bill getBillById(Long id) {
         try {
-            System.out.println("SERVICE - getBillById: " + id);
+            logger.info("SERVICE - getBillById: {}", id);
             return new Bill();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in getBillById");
+            logger.error("An error occurred while fetching bill with ID: {}", id, e);
             return new Bill();
         }
     }
 
     public Bill createBill(Bill bill) {
         try {
-            System.out.println("SERVICE - createBill");
+            logger.info("SERVICE - createBill");
             return new Bill();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in createBill");
+            logger.error("An error occurred while creating a bill: {}", bill, e);
             return new Bill();
         }
     }
 
     public void deleteBillById(Long id) {
         try {
-            System.out.println("SERVICE - deleteBillById: " + id);
+            logger.info("SERVICE - deleteBillById: {}", id);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in deleteBillById");
+            logger.error("An error occurred while deleting bill with ID: {}", id, e);
         }
     }
 
     public void updateBill(Bill bill) {
         try {
-            System.out.println("SERVICE - updateBill");
+            logger.info("SERVICE - updateBill");
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in updateBill");
+            logger.error("An error occurred while updating bill: {}", bill, e);
         }
     }
 }

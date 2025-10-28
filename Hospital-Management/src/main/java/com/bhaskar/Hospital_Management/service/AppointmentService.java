@@ -1,6 +1,8 @@
 package com.bhaskar.Hospital_Management.service;
 
 import com.bhaskar.Hospital_Management.models.Appointment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,54 +11,51 @@ import java.util.List;
 @Service
 public class AppointmentService {
 
+    private static final Logger logger = LoggerFactory.getLogger(AppointmentService.class);
+
     public List<Appointment> getAllAppointments() {
         try {
-            System.out.println("SERVICE - getAllAppointments");
+            logger.info("SERVICE - getAllAppointments");
             return new ArrayList<>();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in getAllAppointments");
+            logger.error("An error occurred while fetching all appointments", e);
             return new ArrayList<>();
         }
     }
 
     public Appointment getAppointmentById(Long id) {
         try {
-            System.out.println("SERVICE - getAppointmentById: " + id);
+            logger.info("SERVICE - getAppointmentById: {}", id);
             return new Appointment();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in getAppointmentById");
+            logger.error("An error occurred while fetching appointment with ID: {}", id, e);
             return new Appointment();
         }
     }
 
     public Appointment createAppointment(Appointment appointment) {
         try {
-            System.out.println("SERVICE - createAppointment");
+            logger.info("SERVICE - createAppointment");
             return new Appointment();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in createAppointment");
+            logger.error("An error occurred while creating an appointment: {}", appointment, e);
             return new Appointment();
         }
     }
 
     public void deleteAppointmentById(Long id) {
         try {
-            System.out.println("SERVICE - deleteAppointmentById: " + id);
+            logger.info("SERVICE - deleteAppointmentById: {}", id);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in deleteAppointmentById");
+            logger.error("An error occurred while deleting appointment with ID: {}", id, e);
         }
     }
 
     public void updateAppointment(Appointment appointment) {
         try {
-            System.out.println("SERVICE - updateAppointment");
+            logger.info("SERVICE - updateAppointment");
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in updateAppointment");
+            logger.error("An error occurred while updating appointment: {}", appointment, e);
         }
     }
 }
