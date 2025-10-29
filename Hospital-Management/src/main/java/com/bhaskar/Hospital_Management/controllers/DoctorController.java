@@ -1,7 +1,6 @@
 package com.bhaskar.Hospital_Management.controllers;
 
 import com.bhaskar.Hospital_Management.models.Doctor;
-import com.bhaskar.Hospital_Management.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
