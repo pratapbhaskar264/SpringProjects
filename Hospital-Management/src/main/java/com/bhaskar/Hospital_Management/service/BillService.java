@@ -46,7 +46,7 @@ public class BillService {
             return billRepository.save(bill);
         } catch (Exception e) {
             logger.error("An error occurred while creating a bill: {}", bill, e);
-            return new Bill(); // Following your pattern of returning a new object on failure
+            return new Bill();
         }
     }
 
@@ -59,6 +59,7 @@ public class BillService {
         }
     }
 
+    // --- THIS METHOD IS NOW UPDATED ---
     public void updateBill(Bill bill, Long id) {
         try {
             logger.info("SERVICE - updateBill");
@@ -67,14 +68,14 @@ public class BillService {
             if(tempBill.isPresent()){
                 Bill existingBill = tempBill.get();
 
-                // --- Set your Bill fields here ---
-                // (e.g., existingBill.setAmount(bill.getAmount());)
-                // (e.g., existingBill.setPatient(bill.getPatient());)
+                // Set fields from your Bill.java model
+                existingBill.setPatientId(bill.getPatientId());
+                existingBill.setAmount(bill.getAmount());
+                existingBill.setStatus(bill.getStatus());
 
                 billRepository.save(existingBill);
             }
             else{
-                // Note: I fixed the copy-paste error from your DoctorService
                 logger.error("Bill with id : {} not found " , id);
             }
         } catch (Exception e) {
