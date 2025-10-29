@@ -34,8 +34,8 @@ public class BillController {
         billService.deleteBillById(id);
     }
 
-    @PutMapping
-    public void updateBill(@RequestBody Bill bill) {
-        billService.updateBill(bill);
+    @PutMapping("/{id}")
+    public void updateBill(@RequestBody Bill bill , @PathVariable Long id) {
+        billService.updateBill(bill , id);
     }
 }
