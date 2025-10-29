@@ -59,7 +59,6 @@ public class AppointmentService {
         }
     }
 
-    // --- THIS IS THE UPDATED METHOD ---
     public void updateAppointment(Appointment appointment, Long id) {
         try {
             logger.info("SERVICE - updateAppointment");
@@ -68,7 +67,6 @@ public class AppointmentService {
             if (tempAppointment.isPresent()) {
                 Appointment existingAppointment = tempAppointment.get();
 
-                // --- Set your Appointment fields here ---
                 existingAppointment.setPatientId(appointment.getPatientId());
                 existingAppointment.setDoctorId(appointment.getDoctorId());
                 existingAppointment.setDate(appointment.getDate());
