@@ -3,6 +3,7 @@ package com.bhaskar.Hospital_Management.controllers;
 import com.bhaskar.Hospital_Management.models.Bill;
 import com.bhaskar.Hospital_Management.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +16,9 @@ public class BillController {
     private BillService billService;
 
     @GetMapping
-    public List<Bill> getAllBills() {
-        return billService.getAllBills();
+    public Page<Bill> getAllBills(@RequestParam(defaultValue = "0") int page ,
+                                  @RequestParam(defaultValue = "2") int size) {
+        return billService.getAllBills(page , size);
     }
 
     @PostMapping

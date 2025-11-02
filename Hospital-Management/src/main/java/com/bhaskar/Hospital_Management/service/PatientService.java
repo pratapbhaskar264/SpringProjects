@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +27,8 @@ public class PatientService {
     public Page<Patient> getAllPatients(int page , int size) {
         try {
             System.out.println("SERVICE - getAllPatients");
-            Pagable pagable = PageRequest.of(page,size);
-            return patientRepository.findAll();
+            Pageable pagable = PageRequest.of(page,size);
+            return patientRepository.findAll(pagable);
         } catch (Exception e) {
             logger.error("An error occurred while fetching all patients", e);
             return null;

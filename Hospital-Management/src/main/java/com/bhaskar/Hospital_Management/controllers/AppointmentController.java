@@ -15,8 +15,9 @@ public class AppointmentController {
     private AppointmentService appointmentService;
 
     @GetMapping
-    public List<Appointment> getAllAppointments() {
-        return appointmentService.getAllAppointments();
+    public Page<Appointment> getAllAppointments(@RequestParam(defaultValue = "0") int page ,
+                                                @RequestParam(defaultValue = "2") int size) {
+        return appointmentService.getAllAppointments(page,size);
     }
 
     @PostMapping
