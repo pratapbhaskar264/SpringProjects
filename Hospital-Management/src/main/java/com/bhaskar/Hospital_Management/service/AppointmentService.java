@@ -5,6 +5,9 @@ import com.bhaskar.Hospital_Management.models.Appointment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,10 +22,11 @@ public class AppointmentService {
     @Autowired
     private AppointmentRepository appointmentRepository;
 
-    public List<Appointment> getAllAppointments() {
+    public Page<Appointment> getAllAppointments(int page , int size) {
         try {
             logger.info("SERVICE - getAllAppointments");
-            return appointmentRepository.findAll();
+            Pageable pagable = PageRequest.of(page,size);
+            return appointmentRepository.findAll(pagable);
         } catch (Exception e) {
             logger.error("An error occurred while fetching all appointments", e);
             return null;

@@ -17,7 +17,7 @@ public class DoctorController {
 
     @GetMapping
     public Page<Doctor> getAllDoctors(@RequestParam(defaultValue = "0") int page ,
-                                      @RequestParam(defaultValue = "2" int size)) {
+                                      @RequestParam(defaultValue = "2") int size) {
 
         return doctorService.getAllDoctors(page , size);
     }

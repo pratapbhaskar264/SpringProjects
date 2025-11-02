@@ -3,6 +3,7 @@ package com.bhaskar.Hospital_Management.controllers;
 import com.bhaskar.Hospital_Management.models.Appointment;
 import com.bhaskar.Hospital_Management.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
