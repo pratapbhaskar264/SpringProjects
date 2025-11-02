@@ -5,6 +5,8 @@ import com.bhaskar.Hospital_Management.models.Patient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,13 +21,14 @@ public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
 
-    public List<Patient> getAllPatients() {
+    public Page<Patient> getAllPatients(int page , int size) {
         try {
             System.out.println("SERVICE - getAllPatients");
+            Pagable pagable = PageRequest.of(page,size);
             return patientRepository.findAll();
         } catch (Exception e) {
             logger.error("An error occurred while fetching all patients", e);
-            return new ArrayList<>();
+            return null;
         }
     }
 
@@ -46,7 +49,7 @@ public class PatientService {
             return patientRepository.save(patient);
         } catch (Exception e) {
             logger.error("An error occurred while creating a patient: {}", patient, e);
-            return new Patient();
+            return null;
         }
     }
 

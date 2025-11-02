@@ -25,7 +25,7 @@ public class DoctorService {
             return doctorRepository.findAll();
         } catch (Exception e) {
             logger.error("An error occurred while fetching all doctors", e);
-            return new ArrayList<>();
+            return null;
         }
     }
 
@@ -46,7 +46,7 @@ public class DoctorService {
             return doctorRepository.save(doctor);
         } catch (Exception e) {
             logger.error("An error occurred while creating a doctor: {}", doctor, e);
-            return new Doctor();
+            return null;
         }
     }
 

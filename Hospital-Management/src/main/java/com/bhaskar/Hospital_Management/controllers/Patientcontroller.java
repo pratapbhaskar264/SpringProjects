@@ -4,11 +4,9 @@ import com.bhaskar.Hospital_Management.models.Patient;
 import com.bhaskar.Hospital_Management.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/patients")
@@ -18,8 +16,10 @@ public class Patientcontroller {
  private PatientService patientService;
 
     @GetMapping
-    public List<Patient> getAllPatients(){
-      return patientService.getAllPatients();
+    public Page<Patient> getAllPatients(@RequestParam(defaultValue = "0") int page ,
+                                        @RequestParam(defaultValue = "2") int size ){
+
+        return patientService.getAllPatients(page , size);
     }
 
     @PostMapping

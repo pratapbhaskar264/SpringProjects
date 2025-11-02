@@ -25,7 +25,7 @@ public class BillService {
             return billRepository.findAll();
         } catch (Exception e) {
             logger.error("An error occurred while fetching all bills", e);
-            return new ArrayList<>();
+            return null;
         }
     }
 
@@ -46,7 +46,7 @@ public class BillService {
             return billRepository.save(bill);
         } catch (Exception e) {
             logger.error("An error occurred while creating a bill: {}", bill, e);
-            return new Bill();
+            return null;
         }
     }
 

@@ -25,7 +25,7 @@ public class AppointmentService {
             return appointmentRepository.findAll();
         } catch (Exception e) {
             logger.error("An error occurred while fetching all appointments", e);
-            return new ArrayList<>();
+            return null;
         }
     }
 
@@ -46,7 +46,7 @@ public class AppointmentService {
             return appointmentRepository.save(appointment);
         } catch (Exception e) {
             logger.error("An error occurred while creating an appointment: {}", appointment, e);
-            return new Appointment();
+            return null;
         }
     }
 
