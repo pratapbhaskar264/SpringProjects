@@ -24,7 +24,7 @@ public class AppointmentService {
 
     public Page<Appointment> getAllAppointments(int page , int size) {
         try {
-            logger.info("SERVICE - getAllAppointments");
+            logger.info("SERVICE -> getAllAppointments");
             Pageable pagable = PageRequest.of(page,size);
             return appointmentRepository.findAll(pagable);
         } catch (Exception e) {
